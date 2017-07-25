@@ -1,8 +1,6 @@
 package com.example.bryanmorse.tekken7king;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,7 @@ import java.util.List;
 
 //MY ADAPTER
 
-public class MoveListData extends RecyclerView.Adapter<MoveListData.ViewHolder> {
+public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -52,7 +50,7 @@ public class MoveListData extends RecyclerView.Adapter<MoveListData.ViewHolder> 
 
     private Context mContext;
 
-    public MoveListData(Context context, List<Moves> moves) {
+    public MoveListAdapter(Context context, List<Moves> moves) {
         mMoves = moves;
         mContext = context;
     }
@@ -60,7 +58,7 @@ public class MoveListData extends RecyclerView.Adapter<MoveListData.ViewHolder> 
     private Context getContext() { return mContext; }
 
     @Override
-    public MoveListData.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MoveListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -71,7 +69,7 @@ public class MoveListData extends RecyclerView.Adapter<MoveListData.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(MoveListData.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(MoveListAdapter.ViewHolder viewHolder, int position) {
 
         final Moves moves = mMoves.get(position);
 
