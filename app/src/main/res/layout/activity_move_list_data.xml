@@ -7,18 +7,100 @@
     tools:context="com.example.bryanmorse.tekken7king.MoveListData">
 
     <TextView
-        android:text="Name"
-        android:layout_margin="10dp"
+        android:id="@+id/moveName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/moveName"/>
+        android:layout_margin="10dp"
+        android:text="Name"
+        android:textColor="@android:color/white" />
 
-    <TextView
-        android:text="Move Input"
+    <ImageView
         android:layout_below="@id/moveName"
         android:layout_marginLeft="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/moveInput"/>
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/lp"
+        android:id="@+id/firstInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/firstInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/secondInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/secondInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/thirdInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/thirdInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/fourthInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/fourthInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/fifthInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/fifthInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/sixthInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/sixthInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/seventhInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/seventhInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/eighthInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/eighthInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/ninthInput"/>
+
+    <ImageView
+        android:layout_toRightOf="@id/ninthInput"
+        android:layout_alignTop="@id/firstInput"
+        android:layout_marginLeft="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/rp"
+        android:id="@+id/tenthInput"/>
 
 </RelativeLayout>

@@ -16,8 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MoveListData" />
-        <activity android:name=".MovesList"></activity>
+        <activity android:name=".MoveListData">
+
+        </activity>
+        <activity android:name=".MovesList">
+
+        </activity>
     </application>
 
 </manifest>

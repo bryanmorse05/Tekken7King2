@@ -19,9 +19,9 @@ public class MovesList extends AppCompatActivity {
         RecyclerView movesRecyclerView = (RecyclerView) findViewById(R.id.movesRecyclerView);
 
         moves = Moves.createMovesList(0);
-        moves.add(new Moves("Punch", "Input 1"));
-        moves.add(new Moves("Kick", "Input 2"));
-        moves.add(new Moves("Throw", "Input 3"));
+        moves.add(new Moves("Test", "lp", "lk", "rprk", "", "", "", "", "", "", ""));
+        moves.add(new Moves("Test2", "right", "upleft", "", "", "", "n", "", "rplk", "", ""));
+        moves.add(new Moves("Kent Face", "up", "up", "down", "down", "left", "right", "left", "right", "lp", "rp"));
 
         MoveListData adapter = new MoveListData(this, moves);
 
