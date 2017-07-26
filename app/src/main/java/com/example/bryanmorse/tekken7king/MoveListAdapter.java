@@ -123,11 +123,11 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
 
     public int sortingThroughInputCommands(String inputCommand) {
         int commandId = 0;
-        if(inputCommand == "lp")
+        if (inputCommand.equals("lp"))
         {
             commandId = R.drawable.lp;
         }
-        else if (inputCommand == "rp")
+        else if (inputCommand.equals("rp"))
         {
             commandId = R.drawable.rp;
         }
@@ -162,6 +162,18 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         else if (inputCommand == "rplk")
         {
             commandId = R.drawable.rplk;
+        }
+        else if (inputCommand == "lprplk")
+        {
+            commandId = R.drawable.lprplk;
+        }
+        else if (inputCommand == "lprprk")
+        {
+            commandId = R.drawable.lprprk;
+        }
+        else if (inputCommand == "all")
+        {
+            commandId = R.drawable.all;
         }
         else if (inputCommand == "n")
         {
@@ -198,6 +210,14 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         else if (inputCommand == "upright")
         {
             commandId = R.drawable.upright;
+        }
+        else if (inputCommand == "lright")
+        {
+            commandId = R.drawable.lright;
+        }
+        else if (inputCommand == "ldownright")
+        {
+            commandId = R.drawable.ldownright;
         }
 
         return commandId;
