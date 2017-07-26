@@ -131,91 +131,91 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         {
             commandId = R.drawable.rp;
         }
-        else if (inputCommand == "lk")
+        else if (inputCommand.equals("lk"))
         {
             commandId = R.drawable.lk;
         }
-        else if (inputCommand == "rk")
+        else if (inputCommand.equals("rk"))
         {
             commandId = R.drawable.rk;
         }
-        else if (inputCommand == "lprp")
+        else if (inputCommand.equals("lprp"))
         {
             commandId = R.drawable.lprp;
         }
-        else if (inputCommand == "lkrk")
+        else if (inputCommand.equals("lkrk"))
         {
             commandId = R.drawable.lkrk;
         }
-        else if (inputCommand == "lplk")
+        else if (inputCommand.equals("lplk"))
         {
             commandId = R.drawable.lplk;
         }
-        else if (inputCommand == "rprk")
+        else if (inputCommand.equals("rprk"))
         {
             commandId = R.drawable.rprk;
         }
-        else if (inputCommand == "lprk")
+        else if (inputCommand.equals("lprk"))
         {
             commandId = R.drawable.lprk;
         }
-        else if (inputCommand == "rplk")
+        else if (inputCommand.equals("rplk"))
         {
             commandId = R.drawable.rplk;
         }
-        else if (inputCommand == "lprplk")
+        else if (inputCommand.equals("lprplk"))
         {
             commandId = R.drawable.lprplk;
         }
-        else if (inputCommand == "lprprk")
+        else if (inputCommand.equals("lprprk"))
         {
             commandId = R.drawable.lprprk;
         }
-        else if (inputCommand == "all")
+        else if (inputCommand.equals("all"))
         {
             commandId = R.drawable.all;
         }
-        else if (inputCommand == "n")
+        else if (inputCommand.equals("n"))
         {
             commandId = R.drawable.n;
         }
-        else if (inputCommand == "right")
+        else if (inputCommand.equals("right"))
         {
             commandId = R.drawable.right;
         }
-        else if (inputCommand == "downright")
+        else if (inputCommand.equals("downright"))
         {
             commandId = R.drawable.downright;
         }
-        else if (inputCommand == "down")
+        else if (inputCommand.equals("down"))
         {
             commandId = R.drawable.down;
         }
-        else if (inputCommand == "downleft")
+        else if (inputCommand.equals("downleft"))
         {
             commandId = R.drawable.downleft;
         }
-        else if (inputCommand == "left")
+        else if (inputCommand.equals("left"))
         {
             commandId = R.drawable.left;
         }
-        else if (inputCommand == "upleft")
+        else if (inputCommand.equals("upleft"))
         {
             commandId = R.drawable.upleft;
         }
-        else if (inputCommand == "up")
+        else if (inputCommand.equals("up"))
         {
             commandId = R.drawable.up;
         }
-        else if (inputCommand == "upright")
+        else if (inputCommand.equals("upright"))
         {
             commandId = R.drawable.upright;
         }
-        else if (inputCommand == "lright")
+        else if (inputCommand.equals("lright"))
         {
             commandId = R.drawable.lright;
         }
-        else if (inputCommand == "ldownright")
+        else if (inputCommand.equals("ldownright"))
         {
             commandId = R.drawable.ldownright;
         }
