@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView moveName;
+
         public ImageView firstInput;
         public ImageView secondInput;
         public ImageView thirdInput;
@@ -27,6 +30,9 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         public ImageView eighthInput;
         public ImageView ninthInput;
         public ImageView tenthInput;
+
+        public CheckBox favoriteCheckbox;
+
 
         public ViewHolder(View itemView) {
 
@@ -43,6 +49,8 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
             eighthInput = itemView.findViewById(R.id.eighthInput);
             ninthInput = itemView.findViewById(R.id.ninthInput);
             tenthInput = itemView.findViewById(R.id.tenthInput);
+
+            favoriteCheckbox = itemView.findViewById(R.id.favoriteMoveButton);
         }
     }
 
@@ -69,13 +77,15 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(MoveListAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(final MoveListAdapter.ViewHolder viewHolder, int position) {
 
         final Moves moves = mMoves.get(position);
 
+        //Set move name
         TextView textView = viewHolder.moveName;
         textView.setText(moves.getName());
 
+        //Setting images in the command list
         ImageView firstInput = viewHolder.firstInput;
         int resIdOne = sortingThroughInputCommands(moves.getFirstInput());
         firstInput.setImageResource(resIdOne);
@@ -115,6 +125,22 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         ImageView tenthInput = viewHolder.tenthInput;
         int resIdTen = sortingThroughInputCommands(moves.getTenthInput());
         tenthInput.setImageResource(resIdTen);
+
+        //Setting the favorite checkbox
+        final CheckBox checkBox = viewHolder.favoriteCheckbox;
+        viewHolder.favoriteCheckbox.setOnCheckedChangeListener(null);
+
+        viewHolder.favoriteCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                viewHolder.favoriteCheckbox.setSelected(moves.getCheckboxState());
+            }
+        });
+
+        checkBox.setSelected(moves.getCheckboxState());
+
+
+
 
     }
 

@@ -16,10 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MovesList">
-
-        </activity>
+        <activity android:name=".MovesList"></activity>
+        <activity android:name=".PunishesList"></activity>
     </application>
 
 </manifest>

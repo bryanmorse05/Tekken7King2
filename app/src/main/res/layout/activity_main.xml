@@ -7,10 +7,10 @@
     tools:context="com.example.bryanmorse.tekken7king.MainActivity">
 
     <ImageView
-        android:background="@drawable/king_image"
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/backgroundImage"/>
+        android:background="@drawable/king_image" />
 
     <ImageView
         android:background="@drawable/tekken_logo"
@@ -23,9 +23,40 @@
         android:text="Moves List"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="280dp"
         android:onClick="openMovesList"
         android:id="@+id/movesListButton"/>
+
+    <Button
+        android:text="Pokes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="50dp"
+        android:layout_alignTop="@id/movesListButton"
+        android:onClick="openPokesList"
+        android:id="@+id/pokesButton"/>
+
+    <Button
+        android:text="Punishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/movesListButton"
+        android:layout_marginTop="36dp"
+        android:layout_below="@id/movesListButton"
+        android:onClick="openPunishesList"
+        android:id="@+id/punishesButton"/>
+
+    <Button
+        android:text="Combos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="36dp"
+        android:layout_below="@id/pokesButton"
+        android:onClick="openCombosList"
+        android:id="@+id/combosButton"/>
 
 </RelativeLayout>

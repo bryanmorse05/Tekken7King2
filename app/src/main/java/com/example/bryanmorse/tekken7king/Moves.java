@@ -19,9 +19,10 @@ public class Moves {
     private String eighthInput;
     private String ninthInput;
     private String tenthInput;
+    private boolean checkboxState;
 
     public Moves(String name, String input1, String input2, String input3, String input4, String input5,
-                 String input6, String input7, String input8, String input9, String input10) {
+                 String input6, String input7, String input8, String input9, String input10, boolean cbState) {
         mName = name;
         firstInput = input1;
         secondInput = input2;
@@ -33,6 +34,7 @@ public class Moves {
         eighthInput = input8;
         ninthInput = input9;
         tenthInput = input10;
+        checkboxState = cbState;
     }
 
     public String getName() { return mName; }
@@ -57,7 +59,7 @@ public class Moves {
 
     public String getTenthInput() { return tenthInput; }
 
-    //public String getInput() { return input1; }
+    public boolean getCheckboxState() { return checkboxState; }
 
     public static ArrayList<Moves> createMovesList(int numMoves) {
         ArrayList<Moves> moves = new ArrayList<>();
@@ -65,7 +67,7 @@ public class Moves {
         //int nMoves = 0;
 
         for (int i = 1; i <= numMoves; i++) {
-            moves.add(new Moves("Move Name", "lp", "rp", "lk", "rk", "lprp", "lkrk", "lplk", "rprk", "right", "left"));
+            moves.add(new Moves("Move Name", "lp", "rp", "lk", "rk", "lprp", "lkrk", "lplk", "rprk", "right", "left", false));
         }
 
         return moves;
