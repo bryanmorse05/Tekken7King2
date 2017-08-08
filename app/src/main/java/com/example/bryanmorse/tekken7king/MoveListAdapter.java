@@ -1,7 +1,9 @@
 package com.example.bryanmorse.tekken7king;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +11,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
+
+import static java.lang.String.valueOf;
 
 //MY ADAPTER
 
@@ -128,14 +133,29 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
 
         //Setting the favorite checkbox
         final CheckBox checkBox = viewHolder.favoriteCheckbox;
+        //checkBox.setChecked(moves.getCheckboxState());
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Tekken7KingSaveData", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit(); //access the file
+
+        //Load the save data
+        for (int i = 0; i < mMoves.size(); i++) {
+            if (moves.getCheckboxState() == true) {
+                viewHolder.favoriteCheckbox.setChecked(sharedPreferences.getBoolean("FavoriteBoxChecked", false));
+            }
+        }
+
         viewHolder.favoriteCheckbox.setOnCheckedChangeListener(null);
 
         viewHolder.favoriteCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                viewHolder.favoriteCheckbox.setSelected(moves.getCheckboxState());
+                if (viewHolder.favoriteCheckbox.isChecked()) {
+                    editor.putBoolean("FavoriteBoxChecked", true);
+                }
             }
         });
+
 
         checkBox.setSelected(moves.getCheckboxState());
 
