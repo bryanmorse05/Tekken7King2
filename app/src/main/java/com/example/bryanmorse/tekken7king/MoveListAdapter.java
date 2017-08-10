@@ -139,11 +139,6 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         final SharedPreferences.Editor editor = sharedPreferences.edit(); //access the file
 
         //Load the save data
-        for (int i = 0; i < mMoves.size(); i++) {
-            if (moves.getCheckboxState() == true) {
-                viewHolder.favoriteCheckbox.setChecked(sharedPreferences.getBoolean("FavoriteBoxChecked", false));
-            }
-        }
 
         viewHolder.favoriteCheckbox.setOnCheckedChangeListener(null);
 
@@ -151,17 +146,26 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (viewHolder.favoriteCheckbox.isChecked()) {
-                    editor.putBoolean("FavoriteBoxChecked", true);
+                    editor.putString(moves.getName(), moves.getName());
+                    Log.d(moves.getName(), "ADDED");
                 }
+                else {
+                    editor.remove(moves.getName());
+                    Log.d(moves.getName(), "REMOVED");
+                }
+                editor.apply();
             }
         });
 
 
-        checkBox.setSelected(moves.getCheckboxState());
-
-
-
-
+        if (moves.getName() == sharedPreferences.getString(moves.getName(), "")) {
+            viewHolder.favoriteCheckbox.setChecked(true);
+            Log.d(moves.getName(), "CHECKED");
+        }
+        else {
+            viewHolder.favoriteCheckbox.setChecked(false);
+            Log.d(moves.getName(), "UN-CHECKED");
+        }
     }
 
     @Override
