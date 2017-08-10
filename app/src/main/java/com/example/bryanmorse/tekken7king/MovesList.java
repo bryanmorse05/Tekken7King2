@@ -1,5 +1,6 @@
 package com.example.bryanmorse.tekken7king;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MovesList extends AppCompatActivity {
+public class MovesList extends Fragment {
 
     ArrayList<Moves> moves;
 
