@@ -19,6 +19,7 @@ public class Moves {
     private String eighthInput;
     private String ninthInput;
     private String tenthInput;
+
     private boolean checkboxState;
 
     public Moves(String name, String input1, String input2, String input3, String input4, String input5,
@@ -61,15 +62,18 @@ public class Moves {
 
     public boolean getCheckboxState() { return checkboxState; }
 
-    public static ArrayList<Moves> createMovesList(int numMoves) {
-        ArrayList<Moves> moves = new ArrayList<>();
+    public void setCheckboxState(boolean checkboxState) {
+        this.checkboxState = checkboxState;
+    }
 
-        //int nMoves = 0;
+    public static ArrayList<Moves> createMovesList(int numMoves) {
+       //int nMoves = 0;
 
         for (int i = 1; i <= numMoves; i++) {
-            moves.add(new Moves("Move Name", "lp", "rp", "lk", "rk", "lprp", "lkrk", "lplk", "rprk", "right", "left", false));
+            MainActivity.moves.add(new Moves("Move Name", "lp", "rp", "lk", "rk", "lprp", "lkrk", "lplk", "rprk", "right", "left", false));
+            MainActivity.favoriteMoves.add(new Moves("Move Name", "lp", "rp", "lk", "rk", "lprp", "lkrk", "lplk", "rprk", "right", "left", false));
         }
 
-        return moves;
+        return MainActivity.moves;
     }
 }

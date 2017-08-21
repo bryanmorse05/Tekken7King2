@@ -16,9 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MovesList" />
         <activity android:name=".PunishesList" />
-        <activity android:name=".MovesTabs"></activity>
+        <activity android:name=".MovesTabs" />
     </application>
 
 </manifest>

@@ -14,7 +14,7 @@ public class PunishesList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_moves_list);
+        setContentView(R.layout.fragment_moves_list);
 
         RecyclerView movesRecyclerView = (RecyclerView) findViewById(R.id.movesRecyclerView);
 
@@ -23,7 +23,7 @@ public class PunishesList extends AppCompatActivity {
         punishes.add(new Moves("Palm Strike to Head Jammer", "lp", "rp", "rprk", "", "", "", "", "", "", "", false));
 
 
-        MoveListAdapter adapter = new MoveListAdapter(this, punishes);
+        MovesListAdapter adapter = new MovesListAdapter(this, punishes);
 
         movesRecyclerView.setAdapter(adapter);
 

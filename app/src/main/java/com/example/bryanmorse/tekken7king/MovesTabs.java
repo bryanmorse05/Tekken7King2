@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import java.util.ArrayList;
+
 public class MovesTabs extends AppCompatActivity {
 
     TabLayout tabLayout;
@@ -20,6 +22,11 @@ public class MovesTabs extends AppCompatActivity {
 
         simpleFrameLayout = (FrameLayout) findViewById(R.id.movesSimpleFrameLayout);
         tabLayout = (TabLayout) findViewById(R.id.movesTabLayout);
+
+
+        //No longer need to call createMovesList because the arrays are being created above now
+        //MovesTabs.moves = Moves.createMovesList(0);
+        //MovesTabs.favoriteMoves = Moves.createMovesList(0);
 
         //Display the Moves List first
         Fragment startingFragment = new MovesList();

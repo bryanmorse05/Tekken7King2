@@ -11,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ import static java.lang.String.valueOf;
 
 //MY ADAPTER
 
-public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHolder> {
+public class MovesListAdapter extends RecyclerView.Adapter<MovesListAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -63,7 +62,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
 
     private Context mContext;
 
-    public MoveListAdapter(Context context, List<Moves> moves) {
+    public MovesListAdapter(Context context, List<Moves> moves) {
         mMoves = moves;
         mContext = context;
     }
@@ -71,7 +70,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
     private Context getContext() { return mContext; }
 
     @Override
-    public MoveListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MovesListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -82,7 +81,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(final MoveListAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(final MovesListAdapter.ViewHolder viewHolder, int position) {
 
         final Moves moves = mMoves.get(position);
 
@@ -91,7 +90,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         textView.setText(moves.getName());
 
         //Setting images in the command list
-        ImageView firstInput = viewHolder.firstInput;
+        final ImageView firstInput = viewHolder.firstInput;
         int resIdOne = sortingThroughInputCommands(moves.getFirstInput());
         firstInput.setImageResource(resIdOne);
 
@@ -132,24 +131,37 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         tenthInput.setImageResource(resIdTen);
 
         //Setting the favorite checkbox
-        final CheckBox checkBox = viewHolder.favoriteCheckbox;
-        //checkBox.setChecked(moves.getCheckboxState());
+        //final CheckBox checkBox = viewHolder.favoriteCheckbox;
 
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("Tekken7KingSaveData", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit(); //access the file
 
         //Load the save data
 
-        viewHolder.favoriteCheckbox.setOnCheckedChangeListener(null);
+     /*   if (moves.getName().equals(sharedPreferences.getString(moves.getName(), ""))) {
+            viewHolder.favoriteCheckbox.setChecked(true);
+            Log.d(moves.getName(), "CHECKED");
+        }
+        else {
+            viewHolder.favoriteCheckbox.setChecked(false);
+            //Log.d(moves.getName(), "UN-CHECKED");
+       }
+*/
+        //viewHolder.favoriteCheckbox.setOnCheckedChangeListener(null);
 
         viewHolder.favoriteCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (viewHolder.favoriteCheckbox.isChecked()) {
-                    editor.putString(moves.getName(), moves.getName());
+                    //editor.putString(moves.getName(), moves.getName());
+                    Moves addFavoriteMove = new Moves(moves.getName(), moves.getFirstInput(), moves.getSecondInput(), moves.getThirdInput(), moves.getFourthInput(), moves.getFifthInput(),
+                            moves.getSixthInput(), moves.getSeventhInput(), moves.getEighthInput(), moves.getNinthInput(), moves.getTenthInput(), moves.getCheckboxState());
+                    MainActivity.favoriteMoves.add(addFavoriteMove);
+
                     Log.d(moves.getName(), "ADDED");
                 }
                 else {
+                    //Do nothing for now
                     editor.remove(moves.getName());
                     Log.d(moves.getName(), "REMOVED");
                 }
@@ -157,15 +169,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
             }
         });
 
-
-        if (moves.getName() == sharedPreferences.getString(moves.getName(), "")) {
-            viewHolder.favoriteCheckbox.setChecked(true);
-            Log.d(moves.getName(), "CHECKED");
-        }
-        else {
-            viewHolder.favoriteCheckbox.setChecked(false);
-            Log.d(moves.getName(), "UN-CHECKED");
-        }
+        viewHolder.favoriteCheckbox.setChecked(moves.getCheckboxState());
     }
 
     @Override
